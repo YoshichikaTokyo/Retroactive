@@ -13,10 +13,8 @@ class AuthenticateViewController: NSViewController {
     @IBOutlet weak var authenticateLabel: DisplayOnlyTextField!
     @IBOutlet weak var viewSourceButton: HoverButton!
     @IBOutlet weak var appLocationTextField: DisplayOnlyTextField!
-    @IBOutlet weak var virtualMachineBox: NSBox!
-    @IBOutlet weak var chosenAppVMTitleField: NSTextField!
-    @IBOutlet weak var chosenAppVMDescriptionField: NSTextField!
-    @IBOutlet weak var currentVMIconImageView: NSImageView!
+    @IBOutlet weak var catchContainerView: NSView!
+    var catchViewController: NSViewController?
     
     static func instantiate() -> AuthenticateViewController {
         return NSStoryboard.standard!.instantiateController(withIdentifier: "AuthenticateViewController") as! AuthenticateViewController
@@ -31,14 +29,13 @@ class AuthenticateViewController: NSViewController {
         viewSourceButton.updateTitle()
         appLocationTextField.stringValue = AppManager.shared.locationOfChosenApp ?? ""
         
-        if (AppManager.shared.likelyInVirtualMachine && AppManager.shared.chosenAppHasLimitedFeaturesInVirtualMachine) {
-            virtualMachineBox.isHidden = false
-            iconView.frame = CGRect(x: 447, y: 339, width: 143, height: 143)
-            chosenAppVMTitleField.stringValue = AppManager.shared.chosenAppVMTitle
-            chosenAppVMDescriptionField.stringValue = AppManager.shared.chosenAppVMDescription
-            currentVMIconImageView.image = AppManager.shared.currentVMImage
+        if (AppManager.shared.needsToShowCatch) {
+            catchViewController = CatchViewController.instantiate()
+            if let catchView = catchViewController?.view {
+                catchContainerView.addSubview(catchView)
+                iconView.frame = CGRect(x: 447, y: 339, width: 143, height: 143)
+            }
         } else {
-            virtualMachineBox.isHidden = true
             iconView.frame = CGRect(x: 388, y: 335, width: 260, height: 260)
         }
     }

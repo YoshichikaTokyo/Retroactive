@@ -19,7 +19,7 @@
 "A newer version of Retroactive is available." = "可下載新版本解印";
 "After you have already installed Final Cut Pro 7 from a DVD installer or DMG image, Retroactive can download and update Final Cut Pro 7 from version 7.0 to 7.0.3, and unlock it to be compatible with %@." = "當您已經通過 DVD 光盤或 DMG 磁盤鏡像安裝 Final Cut Pro 7 之後，解印可以更新 Final Cut Pro 7.0 至 7.0.3，然後將其解鎖。";
 "All iPhoto features should be available except for playing videos, exporting slideshows, Photo Stream, and iCloud Photo Sharing." = "幾乎全部 iPhoto 功能都可以正常使用。不可用的功能包括播放視頻、導出幻燈片、照片流，和 iCloud 照片共享。";
-"App Store" = "App Store";
+"Ringtones and iTunes U" = "鈴聲與 iTunes U";
 "Are you sure you want to stop installing %@?" = "確定要停止安裝 %@？";
 "Cancel" = "取消";
 "Check Again" = "重新檢查";
@@ -133,3 +133,7 @@
 "Why isn’t this more granular?" = "為什麼不能選擇更加細化的訪問權限？";
 "While apps optimized for macOS Catalina can request granular access to Removable Volumes, iTunes was built before macOS Catalina. Retroactive’s loader script has similar requirements." = "儘管為 macOS Catalina 優化的應用程序可以選擇只允許訪問可移除的宗卷，iTunes 為 macOS Catalina 之前的系統構建。解印的加載腳本也有類似的要求。";
 "Unlock Aperture and iPhoto, or install iTunes." = "解除對 Aperture 和 iPhoto 的封印，或安裝 iTunes。";
+"Use Apple Configurator 2 to download iOS apps" = "使用 Apple Configurator 2 下載 iOS 應用程序";
+"Starting from April 2020, you'll need to use Apple Configurator 2 to download iOS apps on your Mac." = "從 2020 年 4 月起，您需要使用 Apple Configurator 2 方可從 Mac 電腦下載 iOS 應用程序。";
+"Get Apple Configurator 2" = "獲取 Apple Configurator 2";
+"Learn how to download an iOS app with Apple Configurator 2" = "了解如何使用 Apple Configurator 2 下載 iOS 應用程序";

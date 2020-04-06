@@ -387,6 +387,10 @@ class AppManager: NSObject {
         return configurationDictionary?["Xcode114URL"] as? String
     }
 
+    var configuratorTutorialURL: String? {
+        return configurationDictionary?["ConfiguratorTutorialURL"] as? String
+    }
+
     var supportedApps: [AppType] {
         if osMinorVersion <= 13 {
             return [.finalCutPro7, .logicPro9, .keynote5]
@@ -1162,6 +1166,10 @@ class AppManager: NSObject {
     }
 
     var currentVMImage: NSImage? {
+        if (self.chosenApp == .itunes) {
+            return NSImage(named: "configurator")
+        }
+
         switch self.currentVM {
         case .vmware:
             return NSImage(named: "vmware")
@@ -1191,7 +1199,7 @@ class AppManager: NSObject {
             case .logicPro9:
                 return ""
             case .itunes:
-                return ""
+                return "Use Apple Configurator 2 to download iOS apps".localized()
             default:
                 return ""
             }
@@ -1214,7 +1222,7 @@ class AppManager: NSObject {
             case .logicPro9:
                 return ""
             case .itunes:
-                return ""
+                return "Starting from April 2020, you'll need to use Apple Configurator 2 to download iOS apps on your Mac.".localized()
             default:
                 return ""
             }
@@ -1263,6 +1271,14 @@ class AppManager: NSObject {
             print("can't find current screen, assuming not in virtual machine")
             return false
         }
+    }
+    
+    var needsToShowiTunesWorkaround: Bool {
+        return self.chosenApp == .itunes && self.choseniTunesVersion == .appStore
+    }
+
+    var needsToShowCatch: Bool {
+        return needsToShowiTunesWorkaround || (self.likelyInVirtualMachine && self.chosenAppHasLimitedFeaturesInVirtualMachine)
     }
     
     var iTunesLibraryPath: String? {
